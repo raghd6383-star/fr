@@ -1,0 +1,670 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Fredoka',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#ffe6f2,#ffffff,#ffeef5);
+    overflow-x:hidden;
+}
+
+/* ==================== Gallery ==================== */
+
+.gallery-section{
+
+    width:100%;
+    height:100vh;
+
+    position:relative;
+
+    background:linear-gradient(135deg,#ffe6f2,#ffffff,#ffeef5);
+
+}
+
+.gallery{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+}
+
+.photo{
+
+    position:absolute;
+
+    width:220px;
+
+    padding:10px;
+
+    background:#fff;
+
+    border-radius:15px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+    cursor:pointer;
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.photo:hover{
+
+    transform:scale(1.05);
+
+}
+
+.photo img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:10px;
+
+}
+
+.p1{
+
+left:8%;
+top:8%;
+
+transform:rotate(-8deg);
+
+animation:dropTop .8s forwards;
+animation-delay:.5s;
+
+}
+
+.p2{
+
+right:8%;
+top:12%;
+
+transform:rotate(8deg);
+
+animation:dropRight .8s forwards;
+animation-delay:1.2s;
+
+}
+
+.p3{
+
+left:38%;
+top:5%;
+
+transform:rotate(-5deg);
+
+animation:dropLeft .8s forwards;
+animation-delay:2s;
+
+}
+
+.p4{
+
+left:15%;
+bottom:8%;
+
+transform:rotate(10deg);
+
+animation:dropBottom .8s forwards;
+animation-delay:2.8s;
+
+}
+
+.p5{
+
+right:15%;
+bottom:8%;
+
+transform:rotate(-8deg);
+
+animation:zoomIn .8s forwards;
+animation-delay:3.6s;
+
+}
+
+.p6{
+
+left:40%;
+bottom:3%;
+
+transform:rotate(5deg);
+
+animation:rotateIn .8s forwards;
+animation-delay:4.4s;
+
+}
+
+.next-btn{
+
+position:absolute;
+
+bottom:40px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:40px;
+
+background:#ff5fa2;
+
+color:#fff;
+
+font-size:20px;
+
+cursor:pointer;
+
+box-shadow:0 12px 25px rgba(255,95,162,.35);
+
+transition:.3s;
+
+}
+
+.next-btn:hover{
+
+transform:translateX(-50%) scale(1.06);
+
+background:#ff478f;
+
+}
+
+/* ==================== Overlay ==================== */
+
+.overlay{
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.75);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.4s;
+
+z-index:1000;
+
+}
+
+.overlay.active{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+.overlay img{
+
+width:70%;
+
+max-width:700px;
+
+border-radius:20px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.4);
+
+}
+/* ==================== Book ==================== */
+
+.book-section{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    background:linear-gradient(135deg,#ffe6f2,#ffffff,#ffeef5);
+
+}
+
+.book{
+
+    position:relative;
+
+    width:400px;
+    height:550px;
+
+    perspective:2500px;
+
+}
+
+.paper{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    top:0;
+    left:0;
+
+    transform-origin:left;
+
+    transform-style:preserve-3d;
+
+    transition:1s;
+
+}
+
+.front,
+.back{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:#fff;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+    backface-visibility:hidden;
+
+}
+
+.front{
+
+    z-index:2;
+
+}
+
+.back{
+
+    transform:rotateY(180deg);
+
+}
+
+.content{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+.title{
+
+    font-family:'Pacifico',cursive;
+
+    color:#ff5fa2;
+
+    font-size:35px;
+
+    margin-bottom:30px;
+
+}
+
+.typing{
+
+    font-size:22px;
+
+    color:#555;
+
+    line-height:1.8;
+
+}
+
+.flipped{
+
+    transform:rotateY(-180deg);
+
+}
+
+.controls{
+
+    margin-top:40px;
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.controls button{
+
+    width:65px;
+
+    height:65px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ff5fa2;
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.controls button:hover{
+
+    transform:scale(1.08);
+
+    background:#ff478f;
+
+}
+
+/* ترتيب الصفحات */
+
+.paper:nth-child(1){
+
+    z-index:3;
+
+}
+
+.paper:nth-child(2){
+
+    z-index:2;
+
+}
+
+.paper:nth-child(3){
+
+    z-index:1;
+
+}
+
+/* ==================== Animations ==================== */
+
+@keyframes dropTop{
+
+from{
+
+opacity:0;
+transform:translateY(-500px) rotate(-30deg);
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes dropRight{
+
+from{
+
+opacity:0;
+transform:translateX(500px) rotate(25deg);
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes dropLeft{
+
+from{
+
+opacity:0;
+transform:translateX(-500px) rotate(-25deg);
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes dropBottom{
+
+from{
+
+opacity:0;
+transform:translateY(500px) rotate(25deg);
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes zoomIn{
+
+from{
+
+opacity:0;
+transform:scale(.2);
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes rotateIn{
+
+from{
+
+opacity:0;
+transform:rotate(720deg) scale(.3);
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+/* ================= Responsive ================= */
+
+@media (max-width:992px){
+
+    .book{
+
+        width:330px;
+        height:470px;
+
+    }
+
+    .photo{
+
+        width:180px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .gallery{
+
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        align-items:center;
+        gap:15px;
+        padding:20px;
+
+    }
+
+    .photo{
+
+        position:static;
+
+        width:42%;
+
+        opacity:1 !important;
+
+        animation:none !important;
+
+        transform:none !important;
+
+    }
+
+    .next-btn{
+
+        position:fixed;
+
+        bottom:20px;
+
+        left:50%;
+
+        transform:translateX(-50%);
+
+        width:90%;
+
+        font-size:18px;
+
+    }
+
+    .overlay img{
+
+        width:90%;
+
+    }
+
+    .book{
+
+        width:90%;
+
+        height:500px;
+
+    }
+
+    .title{
+
+        font-size:28px;
+
+    }
+
+    .typing{
+
+        font-size:18px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .photo{
+
+        width:90%;
+
+    }
+
+    .book{
+
+        height:430px;
+
+    }
+
+    .title{
+
+        font-size:24px;
+
+    }
+
+    .typing{
+
+        font-size:16px;
+
+        line-height:1.6;
+
+    }
+
+    .controls button{
+
+        width:50px;
+
+        height:50px;
+
+        font-size:18px;
+
+    }
+
+}
+/* Fade */
+
+.fade-out{
+
+    animation:fadeOut .8s forwards;
+
+}
+
+@keyframes fadeOut{
+
+from{
+
+opacity:1;
+
+}
+
+to{
+
+opacity:0;
+
+transform:scale(.95);
+
+}
+
+}

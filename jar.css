@@ -1,0 +1,358 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Fredoka',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:linear-gradient(135deg,#ffe6f2,#ffffff,#ffeef5);
+
+}
+
+.background{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:
+    radial-gradient(circle at top left,#ffd8ec,transparent 35%),
+    radial-gradient(circle at bottom right,#ffd8ec,transparent 35%);
+
+    filter:blur(45px);
+
+    z-index:-1;
+
+}
+
+.container{
+
+    text-align:center;
+
+}
+
+h1{
+
+    font-family:'Pacifico',cursive;
+
+    color:#ff5fa2;
+
+    margin-bottom:15px;
+
+    font-size:45px;
+
+}
+
+.hint{
+
+    color:#777;
+
+    margin-bottom:40px;
+
+    font-size:20px;
+
+}
+
+/* ================= Jar ================= */
+
+.jar{
+
+    width:180px;
+
+    height:250px;
+
+    margin:auto;
+
+    position:relative;
+
+    cursor:pointer;
+
+    animation:float 3s ease-in-out infinite;
+
+}
+
+.lid{
+
+    width:130px;
+
+    height:28px;
+
+    background:#ff8fbc;
+
+    border-radius:15px;
+
+    position:absolute;
+
+    left:25px;
+
+    top:0;
+
+    transition:1s;
+
+}
+
+.glass{
+
+    width:180px;
+
+    height:210px;
+
+    position:absolute;
+
+    bottom:0;
+
+    border:5px solid rgba(255,255,255,.8);
+
+    background:rgba(255,255,255,.25);
+
+    backdrop-filter:blur(8px);
+
+    border-radius:30px 30px 40px 40px;
+
+    overflow:hidden;
+
+}
+
+.paper-inside{
+
+    width:65px;
+
+    height:80px;
+
+    background:white;
+
+    border-radius:8px;
+
+    position:absolute;
+
+    left:57px;
+
+    bottom:25px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+/* ================= Letter ================= */
+
+.letter{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.5s;
+
+}
+
+.letter.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.paper{
+
+    width:520px;
+
+    max-width:90%;
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.2);
+
+    animation:pop .7s;
+
+}
+
+.paper h2{
+
+    color:#ff5fa2;
+
+    margin-bottom:25px;
+
+    font-family:'Pacifico',cursive;
+
+}
+
+.paper p{
+
+    color:#555;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    white-space:pre-line;
+
+}
+
+#restart{
+
+    margin-top:35px;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:35px;
+
+    background:#ff5fa2;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#restart:hover{
+
+    transform:scale(1.05);
+
+    background:#ff418d;
+
+}
+
+/* ================= Animation ================= */
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes pop{
+
+from{
+
+opacity:0;
+
+transform:scale(.5);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+.music-player{
+
+    margin-top:30px;
+
+}
+
+#playMusic{
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:linear-gradient(45deg,#ff5fa2,#ff8fb8);
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 10px 20px rgba(255,95,162,.3);
+
+}
+
+#playMusic:hover{
+
+    transform:scale(1.05);
+
+}
+
+#playMusic.playing{
+
+    background:#ff3d89;
+
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:768px){
+
+.paper{
+
+padding:30px;
+
+}
+
+.paper p{
+
+font-size:18px;
+
+}
+
+h1{
+
+font-size:35px;
+
+}
+
+}
