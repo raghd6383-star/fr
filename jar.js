@@ -100,6 +100,6 @@ playBtn.addEventListener("click", () => {
 
 restart.addEventListener("click",()=>{
 
-    window.location.href="idex.html";
+    window.location.href="index.html";
 
 });
